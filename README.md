@@ -20,6 +20,10 @@ https://github-com.translate.goog/ricohapi/theta-api-specs/blob/main/theta-web-a
 POST /v1/place?name={計測地点名}&area={面積}
 ```
 
+### regular_shooting_start.sh
+
+定点撮影開始スクリプト。
+
 ### regular_shooting.sh
 
 定点撮影するスクリプト。  
