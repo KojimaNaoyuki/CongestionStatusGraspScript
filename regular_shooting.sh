@@ -11,7 +11,7 @@ curl -H "content-type: application/json; charset=utf-8" -X POST http://192.168.1
 read filePath < ./data/takePicturedFilePath.txt
 
 # 画像ファイルを取得
-curl -H "content-type: application/json; charset=utf-8" -X GET "http://192.168.1.1:80/files/${filePath}" > ./../RAPiD/images/img.jpg
+curl -H "content-type: application/json; charset=utf-8" -X GET "http://192.168.1.1:80/files/${filePath}" > /opt/RAPiD_improvement/images/img.jpg
 
 # 人数カウント
 python ./../RAPiD_improvement/example.py
