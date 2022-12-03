@@ -23,6 +23,9 @@ col4 = [
     [sg.Button('計測開始', font=('Arial', 20), size=(100, 2))],
 ]
 col5 = [
+    [sg.Button('計測終了', font=('Arial', 20), size=(100, 2))],
+]
+col6 = [
     [sg.Button('混雑状況閲覧', font=('Arial', 20), size=(100, 2))]
 ]
 
@@ -32,7 +35,8 @@ layout = [
     [sg.Column(col2, justification='c')],
     [sg.Column(col3, justification='c')],
     [sg.Column(col4, justification='c')],
-    [sg.Column(col5, justification='c')] 
+    [sg.Column(col5, justification='c')],
+    [sg.Column(col6, justification='c')] 
 ]
 
 # ウィンドウの生成
@@ -47,6 +51,8 @@ while True:
         subprocess.run(["/opt/CongestionStatusGraspScript/run_calc_area.sh " + values[1]], shell=True)
     elif event == '計測開始':
         subprocess.run(["/opt/CongestionStatusGraspScript/regular_shooting_start.sh"], shell=True)
+    elif event == '計測終了':
+        subprocess.run(["/opt/CongestionStatusGraspScript/regular_shooting_stop.sh"], shell=True)
     elif event == '混雑状況閲覧':
         webbrowser.open("https://www.google.com", new=2, autoraise=True)
 

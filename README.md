@@ -2,6 +2,10 @@
 
 https://github-com.translate.goog/ricohapi/theta-api-specs/blob/main/theta-web-api-v2.1/getting_started.md?_x_tr_sl=en&_x_tr_tl=ja&_x_tr_hl=ja&_x_tr_pto=wapp
 
+## clone
+
+linux 環境で「/opt/」ディレクトリ配下にクローンする
+
 ## ファイル概要
 
 #### run_calc_area.sh
