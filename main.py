@@ -46,7 +46,7 @@ while True:
     elif event == '計測地点登録':
         subprocess.run(["/opt/CongestionStatusGraspScript/run_calc_area.sh " + values[1]], shell=True)
     elif event == '計測開始':
-        subprocess.run('regular_shooting_start.sh')
+        subprocess.run(["/opt/CongestionStatusGraspScript/regular_shooting_start.sh"], shell=True)
     elif event == '混雑状況閲覧':
         webbrowser.open("https://www.google.com", new=2, autoraise=True)
 
