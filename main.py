@@ -44,7 +44,7 @@ while True:
     if event == sg.WIN_CLOSED:
         break
     elif event == '計測地点登録':
-        subprocess.run('run_calc_area.sh ' + values[1])
+        subprocess.run(["/opt/CongestionStatusGraspScript/run_calc_area.sh " + values[1]], shell=True)
     elif event == '計測開始':
         subprocess.run('regular_shooting_start.sh')
     elif event == '混雑状況閲覧':
