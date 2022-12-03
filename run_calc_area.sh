@@ -11,7 +11,7 @@ curl -H "content-type: application/json; charset=utf-8" -X POST http://192.168.1
 read filePath < ./data/takePicturedFilePath.txt
 
 # 画像ファイルを取得
-curl -H "content-type: application/json; charset=utf-8" -X GET "http://192.168.1.1:80/files/${filePath}" > ./../MeasureActualDistanceFrom360DegreeImage/360DegreeImg/img.jpg
+curl -H "content-type: application/json; charset=utf-8" -X GET "http://192.168.1.1:80/files/${filePath}" > /opt/MeasureActualDistanceFrom360DegreeImage/360DegreeImg/img.jpg
 
 # 面積計算プログラムを起動
-python ./../MeasureActualDistanceFrom360DegreeImage/run.py 360DegreeImg/img.jpg $1
+python /opt/MeasureActualDistanceFrom360DegreeImage/run.py 360DegreeImg/img.jpg $1
