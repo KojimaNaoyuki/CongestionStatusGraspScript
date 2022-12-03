@@ -4,13 +4,13 @@ https://github-com.translate.goog/ricohapi/theta-api-specs/blob/main/theta-web-a
 
 ## ファイル概要
 
-### run_calc_area.sh
+#### run_calc_area.sh
 
 面積計算を開始する。  
 360 度画像が撮影され、面積計算プログラムが起動する  
 コマンドライン引数 第一に 天井までの距離(m) を付与する
 
-### post_v1_places.sh
+#### post_v1_places.sh
 
 以下のエンドポイントを叩く。  
 コマンドライン引数で地点名を入力することで、data/placeAreaValue.txt に入っている面積情報と共に送信する  
@@ -20,16 +20,20 @@ https://github-com.translate.goog/ricohapi/theta-api-specs/blob/main/theta-web-a
 POST /v1/place?name={計測地点名}&area={面積}
 ```
 
-### regular_shooting_start.sh
+#### regular_shooting_start.sh
 
 定点撮影開始スクリプト。
 
-### regular_shooting.sh
+#### regular_shooting.sh
 
 定点撮影するスクリプト。  
 こちらが実行されている間、定期的に 360 度カメラで撮影する。  
 コマンドライン引数 第一に place_id を付与する
 
-### regular_shooting_stop.sh
+#### regular_shooting_stop.sh
 
 定点撮影を停止する
+
+#### regular_status.sh
+
+定期的に接続しないとカメラとの接続が切断されてしまうため、回避策
