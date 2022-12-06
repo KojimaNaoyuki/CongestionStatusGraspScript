@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import PySimpleGUI as sg
 from screeninfo import get_monitors
 import subprocess
