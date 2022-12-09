@@ -12,22 +12,22 @@ print(window_size)
 sg.theme('DarkAmber')   # デザインテーマの設定
 
 col1 = [
-    [sg.Text('混雑状況共有システム', font=('Arial', 30))],
+    [sg.Text('Congestion Measuring System', font=('Arial', 30))],
 ]
 col2 = [
-    [sg.Text('計測地点名', font=('Arial', 16)), sg.InputText(font=('Arial', 20), size=(10, 2)), sg.Text('天井までの距離', font=('Arial', 16)), sg.InputText(font=('Arial', 20), size=(10, 2))]
+    [sg.Text('Measurement point name', font=('Arial', 16)), sg.InputText(font=('Arial', 20), size=(10, 2)), sg.Text('Distance to ceiling [m]', font=('Arial', 16)), sg.InputText(font=('Arial', 20), size=(10, 2))]
 ]
 col3 = [
-    [sg.Button('計測地点登録', font=('Arial', 20), size=(100, 2))],
+    [sg.Button('Measurement point registration', font=('Arial', 20), size=(100, 2))],
 ]
 col4 = [
-    [sg.Button('計測開始', font=('Arial', 20), size=(100, 2))],
+    [sg.Button('Start measurement', font=('Arial', 20), size=(100, 2))],
 ]
 col5 = [
-    [sg.Button('計測終了', font=('Arial', 20), size=(100, 2))],
+    [sg.Button('End measurement', font=('Arial', 20), size=(100, 2))],
 ]
 col6 = [
-    [sg.Button('混雑状況閲覧', font=('Arial', 20), size=(100, 2))]
+    [sg.Button('View congestion info', font=('Arial', 20), size=(100, 2))]
 ]
 
 # ウィンドウに配置するコンポーネント
@@ -41,20 +41,23 @@ layout = [
 ]
 
 # ウィンドウの生成
-window = sg.Window('混雑状況共有システム', layout, resizable=True, size=(window_size[0], window_size[1]))
+window = sg.Window('Congestion Measuring System', layout, resizable=True, size=(window_size[0], window_size[1]))
 
 # イベントループ
 while True:
     event, values = window.read()
     if event == sg.WIN_CLOSED:
         break
-    elif event == '計測地点登録':
+    elif event == 'Measurement point registration':
+        f = open('/opt/CongestionStatusGraspScript/data/placeName.txt', 'w')
+        f.write(values[0])
+        f.close()
         subprocess.run(["/opt/CongestionStatusGraspScript/run_calc_area.sh " + values[1]], shell=True)
-    elif event == '計測開始':
+    elif event == 'Start measurement':
         subprocess.run(["/opt/CongestionStatusGraspScript/regular_shooting_start.sh"], shell=True)
-    elif event == '計測終了':
+    elif event == 'End measurement':
         subprocess.run(["/opt/CongestionStatusGraspScript/regular_shooting_stop.sh"], shell=True)
-    elif event == '混雑状況閲覧':
+    elif event == 'View congestion info':
         webbrowser.open("https://www.google.com", new=2, autoraise=True)
 
 window.close()

@@ -14,9 +14,9 @@ read filePath < ./data/takePicturedFilePath.txt
 curl -H "content-type: application/json; charset=utf-8" -X GET "http://192.168.1.1:80/files/${filePath}" > /opt/RAPiD_improvement/images/img.jpg
 
 # 人数カウント
-python /opt/RAPiD_improvement/example.py
+python3 /opt/RAPiD_improvement/example.py
     
 read people < /opt/RAPiD_improvement/result/count.txt
 
 # 人数をカウント
-curl -X PUT "http://localhost:3001/v1/congestion_data/{congestion_data_id}" -d "people=${people}"
+curl -X PUT "http://localhost:3001/v1/congestion_data/{$1}" -d "people=${people}"
