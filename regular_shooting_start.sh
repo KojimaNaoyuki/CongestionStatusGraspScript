@@ -1,7 +1,9 @@
 #!/bin/sh
 
+read placeId < /opt/CongestionStatusGraspScript/data/placeId.txt
+
 # 計測を開始する
-curl -X POST "http://localhost:3001/v1/congestion_data" -d "place_id=$1"
+curl -X POST "http://localhost:3001/v1/congestion_data" -d "place_id=${placeId}"
 
 # 5分毎に定期実行
 echo "*/5 * * * * koji /opt/CongestionStatusGraspScript/regular_shooting.sh" > /etc/cron.d/regular_shooting
