@@ -6,7 +6,7 @@ curl -H "content-type: application/json; charset=utf-8" -X POST http://192.168.1
 sleep 5s
 
 # 新規保存されたファイル名を取得
-curl -H "content-type: application/json; charset=utf-8" -X POST http://192.168.1.1:80/osc/state | jq '.state._latestFileUrl' | tr -d \" | cut -f 5,6,7 -d "/" > ./data/takePicturedFilePath.txt
+curl -H "content-type: application/json; charset=utf-8" -X POST http://192.168.1.1:80/osc/state | jq '.state._latestFileUrl' | tr -d \" | cut -f 5,6,7 -d "/" > /opt/CongestionStatusGraspScript/data/takePicturedFilePath.txt
 
 read filePath < ./data/takePicturedFilePath.txt
 
