@@ -13,6 +13,9 @@ read filePath < /opt/CongestionStatusGraspScript/data/takePicturedFilePath.txt
 # 画像ファイルを取得
 curl -H "content-type: application/json; charset=utf-8" -X GET "http://192.168.1.1:80/files/${filePath}" > /opt/RAPiD_improvement/images/img.jpg
 
+# 画像全削除
+curl -H "content-type: application/json; charset=utf-8" -X POST http://192.168.1.1:80/osc/commands/execute -d '{"name": "camera.delete", "parameters": {"fileUrls": ["image"]}}'
+
 export DISPLAY=""
 
 # 人数カウント

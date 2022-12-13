@@ -15,7 +15,11 @@ col1 = [
     [sg.Text('Congestion Measuring System', font=('Arial', 30))],
 ]
 col2 = [
-    [sg.Text('Measurement point name', font=('Arial', 16)), sg.InputText(font=('Arial', 20), size=(10, 2)), sg.Text('Distance to ceiling [m]', font=('Arial', 16)), sg.InputText(font=('Arial', 20), size=(10, 2))]
+    [
+      sg.Text('Measurement point name', font=('Arial', 16)), sg.InputText(font=('Arial', 20), size=(10, 2)),
+      sg.Text('Distance to ceiling [m]', font=('Arial', 16)), sg.InputText(font=('Arial', 20), size=(10, 2)),
+      sg.Text('Reduction ratio (1/input)', font=('Arial', 16)), sg.InputText(font=('Arial', 20), size=(10, 2))
+    ]
 ]
 col3 = [
     [sg.Button('Measurement point registration', font=('Arial', 20), size=(100, 2))],
@@ -52,7 +56,7 @@ while True:
         f = open('/opt/CongestionStatusGraspScript/data/placeName.txt', 'w')
         f.write(values[0])
         f.close()
-        subprocess.run(["/opt/CongestionStatusGraspScript/run_calc_area.sh " + values[1]], shell=True)
+        subprocess.run(["/opt/CongestionStatusGraspScript/run_calc_area.sh " + values[1] + " " + values[2]], shell=True)
     elif event == 'Start measurement':
         subprocess.run(["/opt/CongestionStatusGraspScript/regular_shooting_start.sh"], shell=True)
     elif event == 'End measurement':
