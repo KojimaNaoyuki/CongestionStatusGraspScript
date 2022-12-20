@@ -5,3 +5,7 @@ rm -f /etc/cron.d/regular_shooting
 rm -f /etc/cron.d/regular_status
 
 /etc/init.d/cron restart
+
+read placeId < ./data/placeId.txt
+
+curl -X DELETE "http://localhost:3001/v1/places/${placeId}"
