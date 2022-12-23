@@ -30,9 +30,6 @@ col4 = [
 col5 = [
     [sg.Button('End measurement', font=('Arial', 20), size=(100, 2))],
 ]
-col6 = [
-    [sg.Button('View congestion info', font=('Arial', 20), size=(100, 2))]
-]
 
 # ウィンドウに配置するコンポーネント
 layout = [  
@@ -40,8 +37,7 @@ layout = [
     [sg.Column(col2, justification='c')],
     [sg.Column(col3, justification='c')],
     [sg.Column(col4, justification='c')],
-    [sg.Column(col5, justification='c')],
-    [sg.Column(col6, justification='c')] 
+    [sg.Column(col5, justification='c')] 
 ]
 
 # ウィンドウの生成
@@ -61,7 +57,5 @@ while True:
         subprocess.run(["/opt/CongestionStatusGraspScript/regular_shooting_start.sh"], shell=True)
     elif event == 'End measurement':
         subprocess.run(["/opt/CongestionStatusGraspScript/regular_shooting_stop.sh"], shell=True)
-    elif event == 'View congestion info':
-        webbrowser.open("https://www.google.com", new=2, autoraise=True)
 
 window.close()
