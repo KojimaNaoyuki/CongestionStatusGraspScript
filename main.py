@@ -12,7 +12,7 @@ print(window_size)
 sg.theme('LightBlue2')   # デザインテーマの設定
 
 col1 = [
-    [sg.Text('混雑状況共有システム', font=('Arial', 30))],
+    [sg.Text('混雑情報共有システム', font=('Arial', 30))],
 ]
 col2 = [
     [
@@ -41,7 +41,7 @@ layout = [
 ]
 
 # ウィンドウの生成
-window = sg.Window('混雑状況共有システム', layout, resizable=True, size=(window_size[0], window_size[1]))
+window = sg.Window('混雑情報共有システム', layout, resizable=True, size=(window_size[0], window_size[1]))
 
 # イベントループ
 while True:
